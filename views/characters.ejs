@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Your Characters</h1>
+    <ul>
+    <% characters.forEach( el => {  %>
+        <li class="characterName" data-id="<%=el._id%">
+            <span class="strEdit" >Display Str + Click to Edit</span>
+        </li>
+    <%  })  %>
+    </ul>
+
+    <form action="/characters/createCharacter" method="POST">
+        <input type="text" placeholder="Name" name="characterName">
+        <input type="text" placeholder="Str Score" name="strScore">
+        <input type="sumbit">
+    </form>
+
+    <a href="/logout">Logout</a>
+</body>
+</html>
