@@ -9,7 +9,7 @@ const InventorySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  userId: {
+  charId: {
     type: String,
     required: true
   }

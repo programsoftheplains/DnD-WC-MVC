@@ -4,18 +4,20 @@ module.exports = {
     getItems: async (req,res)=>{
         console.log(req.user)
         try{
-            const inventoryItems = await Inventory.find({userId:req.user.id})
-            const itemsLeft = await Inventory.countDocuments({userId:req.user.id,completed: false})
-            res.render('inventory.ejs', {inventory: inventoryItems, left: itemsLeft, user: req.user})
+            const inventoryItems = await Inventory.find({charId:req.params.cid})
+            res.render('inventory.ejs', {inventory: inventoryItems, user: req.user, charId: req.params.cid})
         }catch(err){
             console.log(err)
         }
     },
     createItem: async (req, res)=>{
         try{
-            await Inventory.create({itemName: req.body.itemName, itemNumber: req.body.itemNumber, userId: req.user.id})
+            await Inventory.create({
+                itemName: req.body.itemName,
+                itemNumber: req.body.itemNumber,
+                charId: req.params.cid})
             console.log('Item has been added!')
-            res.redirect('/inventory')
+            res.redirect('/inventory/'+ req.params.cid)
         }catch(err){
             console.log(err)
         }

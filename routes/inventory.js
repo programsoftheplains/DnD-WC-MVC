@@ -3,9 +3,9 @@ const router = express.Router()
 const inventoryController = require('../controllers/inventory') 
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', ensureAuth, inventoryController.getItems)
+router.get('/:cid', ensureAuth, inventoryController.getItems)
 
-router.post('/createItem', inventoryController.createItem)
+router.post('/createItem/:cid', inventoryController.createItem)
 
 router.delete('/deleteItem', inventoryController.deleteItem)
 
