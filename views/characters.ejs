@@ -11,7 +11,7 @@
     <h1>Your Characters</h1>
     <ul>
     <% characters.forEach( el => {  %>
-        <li class="characterName" data-id="<%=el._id%">
+        <li class="characterName" data-id="<%=el._id%>">
             <span class="strEdit" >Display Str + Click to Edit</span>
         </li>
     <%  })  %>
@@ -20,9 +20,11 @@
     <form action="/characters/createCharacter" method="POST">
         <input type="text" placeholder="Name" name="characterName">
         <input type="text" placeholder="Str Score" name="strScore">
-        <input type="sumbit">
+        <input type="submit">
     </form>
 
     <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

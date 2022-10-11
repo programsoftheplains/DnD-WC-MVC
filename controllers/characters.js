@@ -4,12 +4,12 @@ module.exports = {
     getCharacters: async (req,res)=>{
         try{
             const characters = await CharacterDB.find({userID:req.user.id})
-            res.render('characters.ejs', {characterlist: characters, user: req.user})
+            res.render('characters.ejs', {characters: characters, user: req.user})
         }catch(err){
             console.log(err)
         }
     },
-    creatCharacter: async (req, res)=>{
+    createCharacter: async (req, res)=>{
         try{
             await CharacterDB.create({characterName: req.body.characterName, strScore: req.body.strScore, userID: req.user.id})
             console.log('New Character Created!')
