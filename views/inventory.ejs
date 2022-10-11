@@ -12,7 +12,8 @@
     <ul>
     <% inventory.forEach( el => { %>
             <li class='itemName' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo  %></span>
+                <span><%= el.itemName  %></span>
+                <span><%= el.itemNumber %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -20,7 +21,7 @@
 
     <form action="/inventory/createItem" method='POST'>
         <input type="text" placeholder="Enter Item Name" name='itemName'>
-        <input type="text" placeholder="Item Quantity" name="itemNumber">
+        <input type="number" placeholder="Item Quantity" name="itemNumber">
         <input type="submit">
     </form>
 

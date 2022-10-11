@@ -5,8 +5,8 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, inventoryController.getItems)
 
-router.post('/createTodo', inventoryController.createItem)
+router.post('/createItem', inventoryController.createItem)
 
-router.delete('/deleteTodo', inventoryController.deleteItem)
+router.delete('/deleteItem', inventoryController.deleteItem)
 
 module.exports = router

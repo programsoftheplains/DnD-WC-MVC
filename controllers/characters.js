@@ -3,7 +3,7 @@ const CharacterDB = require('../models/Character')
 module.exports = {
     getCharacters: async (req,res)=>{
         try{
-            const characters = await CharacterDB.find({userID:req.user.id})
+            const characters = await CharacterDB.find({userId:req.user.id})
             res.render('characters.ejs', {characters: characters, user: req.user})
         }catch(err){
             console.log(err)
@@ -11,7 +11,7 @@ module.exports = {
     },
     createCharacter: async (req, res)=>{
         try{
-            await CharacterDB.create({characterName: req.body.characterName, strScore: req.body.strScore, userID: req.user.id})
+            await CharacterDB.create({characterName: req.body.characterName, strScore: req.body.strScore, userId: req.user.id})
             console.log('New Character Created!')
             res.redirect('/characters')    
         }catch(err){

@@ -12,14 +12,16 @@
     <ul>
     <% characters.forEach( el => {  %>
         <li class="characterName" data-id="<%=el._id%>">
-            <span class="strEdit" >Display Str + Click to Edit</span>
+            <span class="charName"><%= el.characterName %></span>
+            <span><%= el.strScore %></span>
+            <span class='del'> Delete </span>
         </li>
     <%  })  %>
     </ul>
 
     <form action="/characters/createCharacter" method="POST">
         <input type="text" placeholder="Name" name="characterName">
-        <input type="text" placeholder="Str Score" name="strScore">
+        <input type="number" placeholder="Str Score" name="strScore">
         <input type="submit">
     </form>
 
