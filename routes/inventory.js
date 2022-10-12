@@ -7,6 +7,8 @@ router.get('/:cid', ensureAuth, inventoryController.getItems)
 
 router.post('/createItem/:cid', inventoryController.createItem)
 
+//router.post('/findItem/:cid', inventoryController.findItem)
+
 router.delete('/deleteItem', inventoryController.deleteItem)
 
 module.exports = router

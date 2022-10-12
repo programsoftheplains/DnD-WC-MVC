@@ -1,11 +1,13 @@
 const Inventory = require('../models/Inventory')
+const CharacterDB = require('../models/Character')
 
 module.exports = {
     getItems: async (req,res)=>{
         console.log(req.user)
         try{
+            //const character = await CharacterDB.find({_id:req.params.cid}) not working rn, figure out how to fetch character from database with route/cid
             const inventoryItems = await Inventory.find({charId:req.params.cid})
-            res.render('inventory.ejs', {inventory: inventoryItems, user: req.user, charId: req.params.cid})
+            res.render('inventory.ejs', {inventory: inventoryItems, user: req.user, charId: req.params.cid, charName: character.characterName})
         }catch(err){
             console.log(err)
         }
@@ -22,6 +24,7 @@ module.exports = {
             console.log(err)
         }
     },
+    //build findItem option to DnD API
     deleteItem: async (req, res)=>{
         console.log(req.body.inventoryIdFromJSFile)
         try{

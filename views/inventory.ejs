@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Inventory</h1>
+    <h1> <%=charName%>'s Inventory</h1>
     <ul>
     <% inventory.forEach( el => { %>
             <li class='itemName' data-id='<%=el._id%>'>
@@ -19,7 +19,17 @@
     <% }) %>    
     </ul>
 
+    <h2>Make an Item!</h2>
     <form action="/inventory/createItem/<%=charId%>" method='POST'>
+        <input type="text" placeholder="Enter Item Name" name='itemName'>
+        <input type="text" placeholder="Description (Optional)" name="description">
+        <input type="text" placeholder="Weight Per Item" name="itemWeight">
+        <input type="number" placeholder="Item Quantity" name="itemNumber">
+        <input type="submit">
+    </form>
+
+    <h2>Find an Item!</h2>
+    <form action="/inventory/searchItem/<%charId%>" method="POST">
         <input type="text" placeholder="Enter Item Name" name='itemName'>
         <input type="number" placeholder="Item Quantity" name="itemNumber">
         <input type="submit">
