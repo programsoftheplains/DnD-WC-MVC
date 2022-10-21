@@ -1,13 +1,19 @@
 const Inventory = require('../models/Inventory')
 const CharacterDB = require('../models/Character')
+const { ObjectID } = require('mongodb')
 
 module.exports = {
     getItems: async (req,res)=>{
         console.log(req.user)
         try{
-            //const character = await CharacterDB.find({_id:req.params.cid}) not working rn, figure out how to fetch character from database with route/cid
+            const character = CharacterDB.findById(req.params.cid)
+            console.log(character.strScore)
             const inventoryItems = await Inventory.find({charId:req.params.cid})
-            res.render('inventory.ejs', {inventory: inventoryItems, user: req.user, charId: req.params.cid})
+            var totalWeight = 0
+            for(i=0;i<inventoryItems.length;i++){
+                totalWeight = totalWeight + ((inventoryItems[i].itemWeight)*(inventoryItems[i].itemNumber))
+            }
+            res.render('inventory.ejs', {charInfo: character, inventory: inventoryItems, user: req.user, charId: req.params.cid, total: totalWeight})
         }catch(err){
             console.log(err)
         }
