@@ -9,6 +9,10 @@ const InventorySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  itemWeight: {
+    type: Number,
+    required: false,
+  },
   charId: {
     type: String,
     required: true

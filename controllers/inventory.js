@@ -7,7 +7,7 @@ module.exports = {
         try{
             //const character = await CharacterDB.find({_id:req.params.cid}) not working rn, figure out how to fetch character from database with route/cid
             const inventoryItems = await Inventory.find({charId:req.params.cid})
-            res.render('inventory.ejs', {inventory: inventoryItems, user: req.user, charId: req.params.cid, charName: character.characterName})
+            res.render('inventory.ejs', {inventory: inventoryItems, user: req.user, charId: req.params.cid})
         }catch(err){
             console.log(err)
         }
@@ -17,6 +17,7 @@ module.exports = {
             await Inventory.create({
                 itemName: req.body.itemName,
                 itemNumber: req.body.itemNumber,
+                itemWeight: req.body.itemWeight,
                 charId: req.params.cid})
             console.log('Item has been added!')
             res.redirect('/inventory/'+ req.params.cid)

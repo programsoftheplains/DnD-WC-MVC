@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1> <%=charName%>'s Inventory</h1>
+    <h1>Inventory</h1>
+
     <ul>
     <% inventory.forEach( el => { %>
             <li class='itemName' data-id='<%=el._id%>'>
                 <span><%= el.itemName  %></span>
-                <span><%= el.itemNumber %></span>
+                <span>No. per Item: <%= el.itemNumber %></span>
+                <span>lb per item: <%= el.itemWeight %></span>
+                <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
