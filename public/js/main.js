@@ -1,20 +1,19 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const inventoryItem = document.querySelectorAll('span.not')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteSelected)
+    el.addEventListener('click', deleteCharacter)
 })
 
 
-async function deleteItem(){
-    const item = this.parentNode.dataset.id
+async function deleteCharacter(){
+    const characterId = this.parentNode.dataset.id
     try{
-        const response = await fetch('inventory/deleteItem', {
+        const response = await fetch('character/deleteCharacter', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'characterIdFromJSFile': characterId
             })
         })
         const data = await response.json()

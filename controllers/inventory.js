@@ -35,7 +35,7 @@ module.exports = {
     deleteItem: async (req, res)=>{
         console.log(req.body.inventoryIdFromJSFile)
         try{
-            await Inventory.findOneAndDelete({_id:req.body.inventoryIdFromJSFile})
+            await Inventory.findOneAndDelete({_id:req.body.inventoryItemFromJSFile})
             console.log('Deleted Item')
             res.json('Deleted It')
         }catch(err){

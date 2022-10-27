@@ -19,13 +19,12 @@ module.exports = {
         }
     },
     deleteCharacter: async (req, res)=>{
-        console.log(req.body.characterIdFromJSFile)
-        try{
-            await CharacterDB.findOneAndDelete({_id:req.body.characterIdFromJSFile})
-            console.log('Deleted Character')
-            res.json('Deleted It')
-        }catch(err){
-            console.log(err)
+        try {
+            await Post.remove({ _id: req.params.id });
+            console.log("Deleted Character");
+            res.redirect('/characters');
+        } catch (err) {
+            res.redirect('/characters')
         }
     }
 }
