@@ -13,9 +13,17 @@ const InventorySchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
+  itemDescription: {
+    type: String,
+    required: false
+  },
   charId: {
     type: String,
     required: true
+  },
+  public: {
+    type: Boolean,
+    required: false
   }
 })
 
