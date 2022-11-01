@@ -5,8 +5,8 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', homebrewsController.getHomebrews)
 
-//router.get('/', ensureAth, homebrewsController.getMyBrews)
+//router.get('/', ensureAth, homebrewsController.getMybrews)
 
-//router.post('/', ensureAth, homebrewsController.togglePublicMyBrews)
+//router.post('/', ensureAth, homebrewsController.togglePublicMybrews)
 
 module.exports = router

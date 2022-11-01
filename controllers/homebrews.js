@@ -1,9 +1,11 @@
-//do i need model access?
+const Inventory = require('../models/Inventory')
+const CharacterDB = require('../models/Character')
 
 module.exports = {
     getHomebrews: async (req,res) => {
         try{
-            res.render('homebrews.ejs')
+            const hbItems = await Inventory.find({public:true})
+            res.render('homebrews.ejs', items = hbItems)
         }catch(err){
             console.log(err)
         }
