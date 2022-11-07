@@ -9,5 +9,22 @@
 </head>
 <body>
     <h1>Homebrew Bank In Progress!</h1>
+
+    <ul>
+        <% items.forEach( el => { %>
+                <li class='itemName' data-id='<%=el._id%>'>
+                    <span><%= el.itemName  %> |</span>
+                    <span>Quantity: <%= el.itemNumber %> |</span>
+                    <span>lb per item: <%= el.itemWeight %> |</span>
+                    <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
+                    <span class='del'> Delete </span>
+                </li>
+        <% }) %>    
+        </ul>
+
+    <a href="/characters">Characters</a>
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

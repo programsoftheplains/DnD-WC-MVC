@@ -20,7 +20,7 @@ module.exports = {
     },
     deleteCharacter: async (req, res)=>{
         try {
-            await Post.remove({ _id: req.params.id });
+            await CharacterDB.remove({ _id: req.params.id });
             console.log("Deleted Character");
             res.redirect('/characters');
         } catch (err) {
