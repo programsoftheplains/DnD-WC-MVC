@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
     <h1>Inventory</h1>
@@ -19,6 +19,7 @@
                 <span>Quantity: <%= el.itemNumber %> |</span>
                 <span>lb per item: <%= el.itemWeight %> |</span>
                 <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
+                <span class="edit">Edit |</span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -47,6 +48,6 @@
     <a href="/characters">Characters</a>
     <a href="/logout">Logout</a>
 
-    <script src="js/main.js"></script>
+    <script src="/public/js/main.js"></script>
 </body>
 </html>
