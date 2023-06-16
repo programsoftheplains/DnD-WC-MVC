@@ -6,8 +6,8 @@ module.exports = {
     getItems: async (req,res)=>{
         console.log(req.user)
         try{
-            const character = CharacterDB.findById(req.params.cid)
-            console.log(character.strScore)
+            const character = await CharacterDB.findById(req.params.cid)
+            console.log(character.characterName)
             const inventoryItems = await Inventory.find({charId:req.params.cid})
             var totalWeight = 0
             for(i=0;i<inventoryItems.length;i++){

@@ -12,3 +12,7 @@ h1{
 .del{
     text-decoration: underline;
 }
+
+.encumbered{
+    color: red;
+}
