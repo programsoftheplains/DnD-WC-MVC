@@ -1,19 +1,26 @@
 const deleteBtn = document.querySelectorAll('.del')
 const inventoryItem = document.querySelectorAll('span.not')
 
-Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteCharacter)
+const deleteItem = document.querySelectorAll('.delItem')
+
+
+Array.from(deleteItem).forEach((el)=>{
+    el.addEventListener('click', itemDeleter)
 })
 
+function tester(){
+    console.log('testing')
+}
 
-async function deleteCharacter(){
-    const characterId = this.parentNode.dataset.id
+
+async function itemDeleter(){
+    const itemId = this.parentNode.dataset.id
     try{
-        const response = await fetch('character/deleteCharacter', {
+        const response = await fetch('inventory/deleteItem', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'characterIdFromJSFile': characterId
+                'itemIdFromJSFile': itemId
             })
         })
         const data = await response.json()
