@@ -33,9 +33,9 @@ module.exports = {
     },
     //build findItem option to DnD API
     deleteItem: async (req, res)=>{
-        console.log(req.body.inventoryIdFromJSFile)
+        console.log(req.body.itemIdFromJSFile)
         try{
-            await Inventory.findOneAndDelete({_id:req.body.inventoryItemFromJSFile})
+            await Inventory.findOneAndDelete({_id:req.body.itemIdFromJSFile})
             console.log('Deleted Item')
             res.json('Deleted It')
         }catch(err){
