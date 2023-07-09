@@ -11,6 +11,6 @@ router.post('/createCharacter', characterController.createCharacter)
 
 //router.put('/editCharName', characterController.editCharName)
 
-router.delete('/deleteCharacter/:id', characterController.deleteCharacter)
+router.delete('/deleteCharacter', characterController.deleteCharacter)
 
 module.exports = router

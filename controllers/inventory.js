@@ -37,7 +37,7 @@ module.exports = {
         try{
             await Inventory.findOneAndDelete({_id:req.body.itemIdFromJSFile})
             console.log('Deleted Item')
-            res.json('Deleted It')
+            res.json('Deleted Item')
         }catch(err){
             console.log(err)
         }

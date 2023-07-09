@@ -13,11 +13,8 @@
     <% characters.forEach( el => {  %>
         <li class="characterName" data-id="<%=el._id%>">
             <a href="/inventory/<%= el._id%>"><%= el.characterName %></a>
-            <span class="charName"><%= el.characterName %></span>
             <span><%= el.strScore %></span>
-            <form action="/characters/deleteCharacter/<%= el.id %>?_method=DELETE" method="POST" class="col-3">
-                <button class="btn btn-primary fa fa-trash" type="submit">Delete</button>
-            </form>
+            <span class='delChar'> Delete </span>
         </li>
     <%  })  %>
     </ul>

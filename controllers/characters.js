@@ -1,4 +1,5 @@
 const CharacterDB = require('../models/Character')
+const { ObjectID } = require('mongodb')
 
 module.exports = {
     getCharacters: async (req,res)=>{
@@ -19,8 +20,9 @@ module.exports = {
         }
     },
     deleteCharacter: async (req, res)=>{
+        console.log(req.body.charIdFromJSFile)
         try {
-            await CharacterDB.remove({ _id: req.params.id });
+            await CharacterDB.findOneAndDelete({_id:req.body.charIdFromJSFile});
             console.log("Deleted Character");
             res.redirect('/characters');
         } catch (err) {
