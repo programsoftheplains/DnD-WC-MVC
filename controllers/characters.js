@@ -1,3 +1,4 @@
+const Inventory = require('../models/Inventory')
 const CharacterDB = require('../models/Character')
 const { ObjectID } = require('mongodb')
 
@@ -24,6 +25,8 @@ module.exports = {
         try {
             await CharacterDB.findOneAndDelete({_id:req.body.charIdFromJSFile});
             console.log("Deleted Character");
+            await Inventory.deleteMany({charId:req.body.charIdFromJSFile});
+            console.log("Deleted Character Inventory")
             res.redirect('/characters');
         } catch (err) {
             res.redirect('/characters')

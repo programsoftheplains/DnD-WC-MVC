@@ -1,4 +1,5 @@
 //delete may not be best used in the main.js folder?
+
 //good place to put a toggle for Night Mode
 //render button in ejs -> event listener in public main.js -> toggle colors in public css
 
@@ -41,13 +42,12 @@ async function itemDeleter(){
     }
 }
 
-//charDeleter is sending 2121/deleteCharacter instead of 2121/characters/deleteCharacter ???
-//item deleter is not encounter this issue, code looks... identical though?
+//charDeleter working, but it's firing two requests. One works, one pulls a 404 and triggers catch(err). Still manages to delete the object, though. Will pursue at a later date for more comprehensive fix.
 
 async function charDeleter(){
     const charId = this.parentNode.dataset.id
     try{
-        const response = await fetch('deleteCharacter', {
+        const response = await fetch('/characters/deleteCharacter', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -59,5 +59,6 @@ async function charDeleter(){
         location.reload()
     }catch(err){
         console.log(err)
+        location.reload()
     }
 }
