@@ -43,12 +43,14 @@ app.use(passport.session())
 
 app.use(flash())
 
+app.use(methodOverride("_method"));
+
+
 app.use('/', mainRoutes)
 app.use('/inventory', inventoryRoutes)
 app.use('/characters', characterRoutes)
 app.use('/homebrews', homebrewsRoutes)
 
-app.use(methodOverride("_method"));
 
  
 app.listen(process.env.PORT, ()=>{

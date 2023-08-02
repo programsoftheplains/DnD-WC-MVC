@@ -85,7 +85,8 @@ openModalButtons.forEach(button => {
         const path = button.parentNode.getAttribute("data-path")
         a = button.parentNode.getAttribute("data-a")
         b = button.parentNode.getAttribute("data-b")
-        openModal(modal, path, id, a, b)
+        cid = button.parentNode.getAttribute("data-cid")
+        openModal(modal, path, id, a, b, cid)
     })
 })
 
@@ -110,15 +111,17 @@ overlay.addEventListener('click', () => {
 })
 
 //here's where the magic happens
+//kinda cheeky, using form[2] to pass cid for /view/cid page reload
+//this fix is only needed for Inventory controller, id & cid will be the same for the Characters controller
+//should be some way to pass cid to controller w/o form - much cleaner, will look into this later
 
-function openModal(modal, path, id, a, b){
+function openModal(modal, path, id, a, b, cid){
     if(modal == null) return
     const form = document.querySelector('.formInput')
     form.action = path + '/' + id + '?_method=PUT'
-    console.log(form.action)
-    console.log(id)
     form[0].value = a
     form[1].value = b
+    form[2].value = cid
     modal.classList.add('active')
     overlay.classList.add('active')
 }

@@ -14,13 +14,13 @@
 
     <ul>
     <% inventory.forEach( el => { %>
-            <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>">
+            <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>" data-cid="<%=el.charId%>">
                 <span><%= el.itemName  %> |</span>
                 <span>Quantity: <%= el.itemNumber %> |</span>
                 <span>lb per item: <%= el.itemWeight %> |</span>
                 <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
                 <button data-modal-target="#modal">Edit</button>
-                <span class='delItem'> Delete </span>
+                <button class="delItem">Delete</button>
             </li>
     <% }) %>    
     </ul>
@@ -35,13 +35,16 @@
 
     <div class="modal" id="modal">
         <div class="modal-header">
-            <div class="title">Edit Item</div>
+            <div class="title">Update Item</div>
             <button data-close-button class="close-button">x</button>
         </div>
         <div class="modal-body">
             <form class="formInput" action="" method='POST'>
+                <span>#</span>
                 <input type="number" placeholder="Quantity" name="p1">
+                <span>lbs</span>
                 <input type="number" placeholder="lbs per item" name="p2">
+                <input type="hidden" placeholder="cid" name="cid">
                 <input type="submit">
             </form>
         </div>

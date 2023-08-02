@@ -40,8 +40,8 @@ module.exports = {
                     itemWeight: req.body.p2,
                 }            
             );
-            res.json('Updated Item')
             console.log('Item Updated')
+            res.redirect('/inventory/'+ req.body.cid)
         }catch(err){
             console.log(err)
         }
