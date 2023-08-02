@@ -11,7 +11,7 @@
     <h1>Your Characters</h1>
     <ul>
     <% characters.forEach( el => {  %>
-        <li class="characterName" data-id="<%=el._id%>">
+        <li class="characterName" data-id="<%=el._id%>" data-type="character">
             <a href="/inventory/<%= el._id%>"><%= el.characterName %></a>
             <span><%= el.strScore %></span>
             <span class='delChar'> Delete </span>

@@ -11,6 +11,8 @@ const mainRoutes = require('./routes/main')
 const inventoryRoutes = require('./routes/inventory')
 const characterRoutes = require('./routes/characters')
 const homebrewsRoutes = require('./routes/homebrews')
+const methodOverride = require("method-override");
+
 
 
 require('dotenv').config({path: './config/.env'})
@@ -45,6 +47,9 @@ app.use('/', mainRoutes)
 app.use('/inventory', inventoryRoutes)
 app.use('/characters', characterRoutes)
 app.use('/homebrews', homebrewsRoutes)
+
+app.use(methodOverride("_method"));
+
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

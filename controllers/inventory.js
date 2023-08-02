@@ -31,6 +31,21 @@ module.exports = {
             console.log(err)
         }
     },
+    editItem: async (req, res)=>{
+        try{
+            await Inventory.findOneAndUpdate(
+                { _id: req.params.id },
+                {
+                    itemNumber: req.body.p1,
+                    itemWeight: req.body.p2,
+                }            
+            );
+            res.json('Updated Item')
+            console.log('Item Updated')
+        }catch(err){
+            console.log(err)
+        }
+    },
     //build findItem option to DnD API
     deleteItem: async (req, res)=>{
         console.log(req.body.itemIdFromJSFile)

@@ -1,27 +1,20 @@
-//delete may not be best used in the main.js folder?
-
-//good place to put a toggle for Night Mode
+//place to put a toggle for Night Mode
 //render button in ejs -> event listener in public main.js -> toggle colors in public css
 
 
 //const deleteBtn = document.querySelectorAll('.del')
-const inventoryItem = document.querySelectorAll('span.not')
+
+
+
+
+//Delete Items
 
 const delItem = document.querySelectorAll('.delItem')
-const delCharacter = document.querySelectorAll('.delChar')
 
 
 Array.from(delItem).forEach((el)=>{
     el.addEventListener('click', itemDeleter)
 })
-
-Array.from(delCharacter).forEach((el)=>{
-    el.addEventListener('click', charDeleter)
-})
-
-function tester(){
-    console.log(this.parentNode.dataset.id)
-}
 
 
 async function itemDeleter(){
@@ -42,7 +35,17 @@ async function itemDeleter(){
     }
 }
 
+//Delete Characters
+
 //charDeleter working, but it's firing two requests. One works, one pulls a 404 and triggers catch(err). Still manages to delete the object, though. Will pursue at a later date for more comprehensive fix.
+
+const delCharacter = document.querySelectorAll('.delChar')
+
+
+Array.from(delCharacter).forEach((el)=>{
+    el.addEventListener('click', charDeleter)
+})
+
 
 async function charDeleter(){
     const charId = this.parentNode.dataset.id
@@ -61,4 +64,61 @@ async function charDeleter(){
         console.log(err)
         location.reload()
     }
+}
+
+
+//Edit Form
+
+const edit = document.querySelectorAll('.edit')
+
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+
+//Open + close conditions
+
+openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        const id = button.parentNode.getAttribute("data-id")
+        const path = button.parentNode.getAttribute("data-path")
+        a = button.parentNode.getAttribute("data-a")
+        b = button.parentNode.getAttribute("data-b")
+        openModal(modal, path, id, a, b)
+    })
+})
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal')
+        closeModal(modal)
+    })
+})
+
+function closeModal(modal){
+    if(modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+}
+
+overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+        closeModal(modal)
+    })
+})
+
+//here's where the magic happens
+
+function openModal(modal, path, id, a, b){
+    if(modal == null) return
+    const form = document.querySelector('.formInput')
+    form.action = path + '/' + id + '?_method=PUT'
+    console.log(form.action)
+    console.log(id)
+    form[0].value = a
+    form[1].value = b
+    modal.classList.add('active')
+    overlay.classList.add('active')
 }

@@ -14,20 +14,41 @@
 
     <ul>
     <% inventory.forEach( el => { %>
-            <li class='itemName' data-id='<%=el._id%>'>
+            <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>">
                 <span><%= el.itemName  %> |</span>
                 <span>Quantity: <%= el.itemNumber %> |</span>
                 <span>lb per item: <%= el.itemWeight %> |</span>
                 <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
-                <span class="edit">Edit |</span>
+                <button data-modal-target="#modal">Edit</button>
                 <span class='delItem'> Delete </span>
             </li>
     <% }) %>    
     </ul>
+
+
+    <!--placeholder for messing around with-->
+    <!--ok... now we gotta put this in the inventory.forEach-->
+    <!--create a hidden form for every inv. item that passes on the item id into the data-modal-target and id's ?-->
+
+    <!--alt idea: one form, but each Edit in the LI calls a function to open the form and pass in the el._id and other info into the form header and body-->
     
-    <!--Add event listener to el.itemName to show Description in pop-up window when clicked, <a> should work-->
-    <!--Express EJS Modal for Edit pop-up-->
-    <!--Pass on el._id% to Pop-up, fill info, then pass on to PUT code when submitted-->
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Edit Item</div>
+            <button data-close-button class="close-button">x</button>
+        </div>
+        <div class="modal-body">
+            <form class="formInput" action="" method='POST'>
+                <input type="number" placeholder="Quantity" name="p1">
+                <input type="number" placeholder="lbs per item" name="p2">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
+ 
+
 
     <% if (total <= charInfo.strScore*15) { %>
         <h2> Inventory Weight: <%= total %> / <%= charInfo.strScore*15 %> lbs </h2>
@@ -56,6 +77,8 @@
 
     <a href="/characters">Characters</a>
     <a href="/logout">Logout</a>
+
+
 
     <script src="../js/main.js"></script>
 </body>
