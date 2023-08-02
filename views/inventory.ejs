@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= charInfo.characterName %></title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -21,6 +21,7 @@
                 <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
                 <button data-modal-target="#modal">Edit</button>
                 <button class="delItem">Delete</button>
+                <span><%=el.itemDescription%></span>
             </li>
     <% }) %>    
     </ul>
@@ -65,9 +66,9 @@
     <h2>Make an Item!</h2>
     <form action="/inventory/createItem/<%=charId%>" method='POST'>
         <input type="text" placeholder="Enter Item Name" name='itemName'>
-        <input type="text" placeholder="Description (Optional)" name="description">
-        <input type="number" placeholder="Weight Per Item" name="itemWeight">
+        <input type="text" placeholder="Description (Optional)" name="itemDescription">
         <input type="number" placeholder="Item Quantity" name="itemNumber">
+        <input type="number" placeholder="Weight Per Item (Optional)" name="itemWeight">
         <input type="submit">
     </form>
 

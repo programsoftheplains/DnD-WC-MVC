@@ -1,10 +1,33 @@
-h1{
-    color: red;
+body{
+    padding-left: 20px;
+    background-color: #b7e1e4;
+    color:#535353;
+
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+
+.secondary{
+    background-color: whitesmoke;
+    border: 2px solid #8eaeb1;
 }
+
+/**dark mode deep blue with forest green?**/
+/**bckgrnd #111827 , accents #1f2937 , buttons #22543d , txt white **/
+
+.darkModeBody{
+    background-color: #111827;
+    color: white;
+}
+
+.darkModeBody > .secondary{
+    background-color: #1f2937;
+    border: 2px solid #22543d;
+}
+
+
+
+
+
 .not{
     text-decoration: underline;
 }
@@ -19,8 +42,7 @@ h1{
 
 
 
-
-
+ 
 /**Modal Styling**/
 
 .modal{

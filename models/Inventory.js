@@ -15,7 +15,6 @@ const InventorySchema = new mongoose.Schema({
   },
   itemDescription: {
     type: String,
-    required: false
   },
   charId: {
     type: String,

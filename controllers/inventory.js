@@ -24,6 +24,7 @@ module.exports = {
                 itemName: req.body.itemName,
                 itemNumber: req.body.itemNumber,
                 itemWeight: req.body.itemWeight,
+                itemDescription: req.body.itemDescription,
                 charId: req.params.cid})
             console.log('Item has been added!')
             res.redirect('/inventory/'+ req.params.cid)
