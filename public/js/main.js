@@ -1,19 +1,4 @@
-//place to put a toggle for Night Mode
-//render button in ejs -> event listener in public main.js -> toggle colors in public css
-
-const toggler = document.querySelectorAll('.toggler')
-
-
-  toggler.forEach(button => {
-    button.addEventListener('click', () => {
-        var element = document.body;
-        element.classList.toggle("darkModeBody");
-    })
-})
-
 //const deleteBtn = document.querySelectorAll('.del')
-
-
 
 
 //Delete Items

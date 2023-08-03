@@ -2,7 +2,6 @@ body{
     padding-left: 20px;
     background-color: #b7e1e4;
     color:#535353;
-
 }
 
 
@@ -14,23 +13,16 @@ body{
 /**dark mode deep blue with forest green?**/
 /**bckgrnd #111827 , accents #1f2937 , buttons #22543d , txt white **/
 
-.darkModeBody{
+body.dark-mode{
     background-color: #111827;
     color: white;
 }
 
-.darkModeBody > .secondary{
+body.dark-mode > .secondary{
     background-color: #1f2937;
     border: 2px solid #22543d;
 }
 
-
-
-
-
-.not{
-    text-decoration: underline;
-}
 
 .del{
     text-decoration: underline;
@@ -40,6 +32,25 @@ body{
     color: red;
 }
 
+
+/**night mode checkbox and icon**/
+
+#ChangeTheme{
+    display: none;
+}
+
+.darkButton{
+    position: absolute;
+    right: 0;
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+    font-size: 30px !important;
+    font-weight: bold !important;
+    border-radius: 50%;
+    height: auto;
+    width: auto; 
+}
 
 
  

@@ -1,4 +1,12 @@
 
+body{
+    background-image:url(../assets/bindlePurple.jpg);
+    background-size: cover;
+}
+
+body.dark-mode {
+    background-image:url(../assets/bindleDark.jpg);
+  }
 
 .centerContent{
     position: fixed;
