@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/landing.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
     <% if (locals.messages.errors) { %>
@@ -13,12 +15,30 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+
+    <div class="centerContent secondary">
+        <h2>Create an Account</h2>
+        <div class="auth">
+            <h3>AUTH GOES HERE</h3>
+        </div>
+        <form action="/signup" method="POST">
+            <input type="text" name="userName" placeholder="User Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            <input type="submit">
+        </form>
+        <a href="/">Home</a>
+    </div>
+
+
+    <label for="ChangeTheme">
+        <input type="checkbox" id="ChangeTheme"/>
+        <span class="material-symbols-outlined darkButton" id="darkButton">bedtime</span>
+    </label> 
+
+    <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+
 </body>
 </html>

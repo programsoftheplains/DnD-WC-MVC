@@ -7,7 +7,11 @@ body{
 
 .secondary{
     background-color: whitesmoke;
-    border: 2px solid #8eaeb1;
+    border: 3px solid #8eaeb1;
+}
+
+:any-link{
+    color: #7e75e6;
 }
 
 /**dark mode deep blue with forest green?**/
@@ -20,7 +24,15 @@ body.dark-mode{
 
 body.dark-mode > .secondary{
     background-color: #1f2937;
-    border: 2px solid #22543d;
+    border: 3px solid #22543d;
+}
+
+body.dark-mode > :any-link {
+    color: #2ba069;
+}
+
+body.dark-mode > div > div > a{
+    color: #2ba069;
 }
 
 

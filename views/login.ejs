@@ -7,6 +7,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/landing.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
     <% if (locals.messages.errors) { %>
@@ -19,10 +20,31 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+
+    <div class="centerContent secondary">
+        <h2>Log In</h2>
+        <div class="auth">
+            <h3>AUTH GOES HERE</h3>
+        </div>
+        <form action="/login" method="POST" class="accountOptions">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit">
+        </form>
+        <div class="accountOptions">
+            <a href="/">Home</a>
+            <a href="/signup">Signup</a>
+        </div>
+    </div>
+
+
+    <label for="ChangeTheme">
+        <input type="checkbox" id="ChangeTheme"/>
+        <span class="material-symbols-outlined darkButton" id="darkButton">bedtime</span>
+    </label>    
+
+    <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+
 </body>
 </html>
