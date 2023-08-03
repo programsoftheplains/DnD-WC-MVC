@@ -1,12 +1,23 @@
 
+/**Darkmode**/
+
+body.dark-mode {
+    background-image:url(../assets/bindleDarkAlt.jpg);
+  }
+
+body.dark-mode>div>div>.logo{
+    content: url(../assets/logoWhite.png);
+    max-height: 62%;
+}
+
+
+/**Main**/
+
 body{
     background-image:url(../assets/bindlePurple.jpg);
     background-size: cover;
 }
 
-body.dark-mode {
-    background-image:url(../assets/bindleDark.jpg);
-  }
 
 .centerContent{
     position: fixed;
@@ -24,8 +35,15 @@ body.dark-mode {
 .heading{
     border: 1px solid grey;
     text-align: center;
-    margin: 5px;
+    height: 30%;
     pad: 5px;
+    margin: 5px;
+}
+
+.logo{
+    content: url(../assets/logoBlack.png);
+    max-width: 100%;
+    max-height: 60%;
 }
 
 
