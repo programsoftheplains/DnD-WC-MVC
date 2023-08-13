@@ -6,31 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Characters</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
-    <h1 class="title">Characters</h1>
-    <ul>
-    <% characters.forEach( el => {  %>
-        <li class="characterName" data-id="<%=el._id%>" data-type="character">
-            <a href="/inventory/<%= el._id%>"><%= el.characterName %></a>
-            <span><%= el.strScore %></span>
-            <span class='delChar'> Delete </span>
-        </li>
-    <%  })  %>
-    </ul>
+
+    <label for="ChangeTheme">
+        <input type="checkbox" id="ChangeTheme"/>
+        <span class="material-symbols-outlined darkButton" id="darkButton">bedtime</span>
+    </label> 
+    
+    <div class="centerContent secondary displays">
+        <h1 class="title">Characters</h1>
+        <ul>
+             <% characters.forEach( el => {  %>
+                <li class="characterName" data-id="<%=el._id%>" data-type="character">
+                <a href="/inventory/<%= el._id%>"><%= el.characterName %></a>
+                <span><%= el.strScore %></span>
+                <span class='delChar'> Delete </span>
+            </li>
+            <%  })  %>
+         </ul>
 
     <!--Add EDIT button for Characters, EJS modal pop-up for editing name + STR score-->
 
-    <form action="/characters/createCharacter" method="POST">
-        <input type="text" placeholder="Name" name="characterName">
-        <input type="number" placeholder="Str Score" name="strScore">
-        <input type="submit">
-    </form>
+        <form action="/characters/createCharacter" method="POST">
+            <input type="text" placeholder="Name" name="characterName">
+            <input type="number" placeholder="Str Score" name="strScore">
+            <input type="submit">
+        </form>
 
-    <a href="/homebrews">Homebrew Bank</a>
+        <a href="/homebrews">Homebrew Bank</a>
 
-    <a href="/logout">Logout</a>
+        <a href="/logout">Logout</a>
+    </div>
+    
 
     <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+
 </body>
 </html>
