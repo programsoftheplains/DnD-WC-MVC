@@ -11,10 +11,12 @@
 </head>
 <body>
 
-    <label for="ChangeTheme">
-        <input type="checkbox" id="ChangeTheme"/>
-        <span class="material-symbols-outlined darkButton" id="darkButton">bedtime</span>
-    </label> 
+
+
+    <div class="logoTop">
+        <p>Bindle</p>
+        <img src="" alt="Bindle Logo">
+    </div>
     
     <div class="centerContent secondary displays">
         <h1 class="title">Characters</h1>
@@ -22,24 +24,36 @@
              <% characters.forEach( el => {  %>
                 <li class="characterName" data-id="<%=el._id%>" data-type="character">
                 <a href="/inventory/<%= el._id%>"><%= el.characterName %></a>
-                <span><%= el.strScore %></span>
-                <span class='delChar'> Delete </span>
+                <div data-id="<%=el._id%>">
+                    <span>Str : <%= el.strScore %></span>
+                    <span class='delChar'> Delete </span>
+                </div>
             </li>
             <%  })  %>
          </ul>
 
     <!--Add EDIT button for Characters, EJS modal pop-up for editing name + STR score-->
 
-        <form action="/characters/createCharacter" method="POST">
-            <input type="text" placeholder="Name" name="characterName">
-            <input type="number" placeholder="Str Score" name="strScore">
-            <input type="submit">
-        </form>
+         <div class="submissionForms">
+            <form action="/characters/createCharacter" method="POST">
+                <input type="text" placeholder="Name" name="characterName">
+                <input type="number" placeholder="Str Score" name="strScore">
+                <input type="submit">
+            </form>
+         </div>
+        
 
-        <a href="/homebrews">Homebrew Bank</a>
+        <div class="accountOptions">
+            <a href="/homebrews">Homebrews</a>
+            <a href="/logout">Logout</a>
+        </div>
 
-        <a href="/logout">Logout</a>
     </div>
+
+    <label for="ChangeTheme">
+        <input type="checkbox" id="ChangeTheme"/>
+        <span class="material-symbols-outlined darkButton" id="darkButton">bedtime</span>
+    </label> 
     
 
     <script src="../js/main.js"></script>

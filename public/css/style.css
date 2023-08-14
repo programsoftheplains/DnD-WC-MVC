@@ -36,10 +36,6 @@ body.dark-mode > div > div > a{
 }
 
 
-.del{
-    text-decoration: underline;
-}
-
 .encumbered{
     color: red;
 }
