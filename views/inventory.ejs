@@ -19,47 +19,54 @@
     <div class="centerContent secondary displays">
         <h1 class="title"><%= charInfo.characterName %></h1>
 
+        <div class="weightDisplay">
+            <% if (total <= charInfo.strScore*15) { %>
+                <h2> Inventory Weight: <%= total %> / <%= charInfo.strScore*15 %> lbs </h2>
+                <%} else{ %>
+                <h2> Inventory Weight:
+                    <span class="encumbered"><%= total %> / <%= charInfo.strScore*15 %> lbs</span>
+                </h2>
+                <h3 class="encumbered">You are over-encumbered!</h3>
+            <% } %>
+        </div>        
 
         <ul>
         <% inventory.forEach( el => { %>
                 <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>" data-cid="<%=el.charId%>">
-                    <span><%= el.itemName  %> |</span>
-                    <span>Quantity: <%= el.itemNumber %> |</span>
-                    <span>lb per item: <%= el.itemWeight %> |</span>
-                    <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
-                    <span><%=el.itemDescription%></span>
-                    <button data-modal-target="#modal">Edit</button>
-                    <button class="delItem">Delete</button>
+                    <div class="cInfo">
+                        <span class="iName"><%= el.itemName  %></span>
+                        <span>quantity : <%= el.itemNumber %></span>
+                        <span>item weight : <%= el.itemWeight %></span>
+                        <span>total lb : <%= (el.itemNumber)*(el.itemWeight) %></span>
+                        <span class="iDescription"><%=el.itemDescription%></span>
+                    </div>
+                    <button data-modal-target="#modal" class="material-symbols-outlined noStyle">Edit_square</button>
+                    <button class="delItem material-symbols-outlined noStyle">Delete</button>
                 </li>
         <% }) %>    
         </ul>
     
         <!--Flex Box likely best option to deal with screen sizes and organization with item list-->
 
-        <% if (total <= charInfo.strScore*15) { %>
-            <h2> Inventory Weight: <%= total %> / <%= charInfo.strScore*15 %> lbs </h2>
-            <%} else{ %>
-            <h2> Inventory Weight:
-                <span class="encumbered"><%= total %> / <%= charInfo.strScore*15 %> lbs</span>
-            </h2>
-            <h3 class="encumbered">You are over-encumbered!</h3>
-        <% } %>
-    
-        <div class="inventorySubs">
-            <h2>Make an Item!</h2>
-            <form action="/inventory/createItem/<%=charId%>" method='POST'>
-                <input type="text" placeholder="Enter Item Name" name='itemName'>
-                <input type="text" placeholder="Description (Optional)" name="itemDescription">
-                <input type="number" placeholder="Item Quantity" name="itemNumber">
-                <input type="number" placeholder="Weight Per Item (Optional)" name="itemWeight">
-                <input type="submit">
-            </form>
-            <h2>Find an Item!</h2>
-            <form action="/inventory/searchItem/<%charId%>" method="POST">
-                <input type="text" placeholder="Enter Item Name" name='itemName'>
-                <input type="number" placeholder="Item Quantity" name="itemNumber">
-                <input type="submit">
-            </form>
+        <div class="lowerInv">
+
+            <div class="inventorySubs">
+                <h2>Make an Item!</h2>
+                <form action="/inventory/createItem/<%=charId%>" method='POST'>
+                    <input type="text" placeholder="Enter Item Name" name='itemName'>
+                    <input type="text" placeholder="Description (Optional)" name="itemDescription">
+                    <input type="number" placeholder="Item Quantity" name="itemNumber">
+                    <input type="number" placeholder="Weight Per Item (Optional)" name="itemWeight">
+                    <input type="submit">
+                </form>
+                <h2>Find an Item!</h2>
+                <form action="/inventory/searchItem/<%charId%>" method="POST">
+                    <input type="text" placeholder="Enter Item Name" name='itemName'>
+                    <input type="number" placeholder="Item Quantity" name="itemNumber">
+                    <input type="submit">
+                </form>
+            </div>
+
         </div>
         
 

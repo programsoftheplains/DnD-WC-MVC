@@ -23,12 +23,15 @@
         <ul>
              <% characters.forEach( el => {  %>
                 <li class="characterName" data-id="<%=el._id%>" data-type="character">
-                <a href="/inventory/<%= el._id%>"><%= el.characterName %></a>
-                <div data-id="<%=el._id%>">
-                    <span>Str : <%= el.strScore %></span>
-                    <span class='delChar'> Delete </span>
-                </div>
-            </li>
+                    <div>
+                        <a href="/inventory/<%= el._id%>" class="cNameList"><%= el.characterName %></a>
+                        <span>Str : <%= el.strScore %></span>
+                    </div>
+                    <div data-id="<%=el._id%>">
+                        <span class="material-symbols-outlined noStyle">Edit_square</span>
+                        <span class='delChar material-symbols-outlined noStyle'> Delete </span>
+                    </div>
+                </li>
             <%  })  %>
          </ul>
 

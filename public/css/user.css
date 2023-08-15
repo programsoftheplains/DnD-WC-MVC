@@ -56,6 +56,45 @@ ul>li>div>span{
     border-bottom: .5px dotted gray;
 }
 
+.cNameList{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.weightDisplay{
+    text-align: center;
+}
+
+.itemName{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.itemName>*{
+}
+
+.cInfo{
+    width: 85%;
+}
+
+.cInfo>*{
+    border: none;
+}
+
+.iName{
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: underline gray;
+}
+
+.iDescription{
+    font-style: italic;
+}
+
+.noStyle{
+    border: none;
+    background: none;
+}
 
 .charSub{
     position: absolute;
@@ -66,6 +105,14 @@ ul>li>div>span{
     margin-bottom: 40px;
     width: 100%;
     text-align: center;
+}
+
+.lowerInv{
+    margin: 0px 20px;
+}
+
+.inventorySubs{
+    margin-bottom: 100px;
 }
 
 .accountOptions{
@@ -81,4 +128,22 @@ ul>li>div>span{
 
 .accountOptions>a{
     margin: 0px 10px;
+}
+
+
+
+@media (max-width:960px) {
+
+.itemName{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
 }
