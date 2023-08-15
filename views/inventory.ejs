@@ -6,33 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= charInfo.characterName %></title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
-    <h1>Inventory</h1>
 
-    <h2><%= charInfo.characterName %></h2>
+    <div class="logoTop">
+        <p>Bindle</p>
+        <img src="" alt="Bindle Logo">
+    </div>
 
-    <ul>
-    <% inventory.forEach( el => { %>
-            <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>" data-cid="<%=el.charId%>">
-                <span><%= el.itemName  %> |</span>
-                <span>Quantity: <%= el.itemNumber %> |</span>
-                <span>lb per item: <%= el.itemWeight %> |</span>
-                <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
-                <button data-modal-target="#modal">Edit</button>
-                <button class="delItem">Delete</button>
-                <span><%=el.itemDescription%></span>
-            </li>
-    <% }) %>    
-    </ul>
+    <div class="centerContent secondary displays">
+        <h1 class="title"><%= charInfo.characterName %></h1>
 
 
-    <!--placeholder for messing around with-->
-    <!--ok... now we gotta put this in the inventory.forEach-->
-    <!--create a hidden form for every inv. item that passes on the item id into the data-modal-target and id's ?-->
-
-    <!--alt idea: one form, but each Edit in the LI calls a function to open the form and pass in the el._id and other info into the form header and body-->
+        <ul>
+        <% inventory.forEach( el => { %>
+                <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>" data-cid="<%=el.charId%>">
+                    <span><%= el.itemName  %> |</span>
+                    <span>Quantity: <%= el.itemNumber %> |</span>
+                    <span>lb per item: <%= el.itemWeight %> |</span>
+                    <span>total lb: <%= (el.itemNumber)*(el.itemWeight) %> |</span>
+                    <span><%=el.itemDescription%></span>
+                    <button data-modal-target="#modal">Edit</button>
+                    <button class="delItem">Delete</button>
+                </li>
+        <% }) %>    
+        </ul>
     
+        <!--Flex Box likely best option to deal with screen sizes and organization with item list-->
+
+        <% if (total <= charInfo.strScore*15) { %>
+            <h2> Inventory Weight: <%= total %> / <%= charInfo.strScore*15 %> lbs </h2>
+            <%} else{ %>
+            <h2> Inventory Weight:
+                <span class="encumbered"><%= total %> / <%= charInfo.strScore*15 %> lbs</span>
+            </h2>
+            <h3 class="encumbered">You are over-encumbered!</h3>
+        <% } %>
+    
+        <div class="inventorySubs">
+            <h2>Make an Item!</h2>
+            <form action="/inventory/createItem/<%=charId%>" method='POST'>
+                <input type="text" placeholder="Enter Item Name" name='itemName'>
+                <input type="text" placeholder="Description (Optional)" name="itemDescription">
+                <input type="number" placeholder="Item Quantity" name="itemNumber">
+                <input type="number" placeholder="Weight Per Item (Optional)" name="itemWeight">
+                <input type="submit">
+            </form>
+            <h2>Find an Item!</h2>
+            <form action="/inventory/searchItem/<%charId%>" method="POST">
+                <input type="text" placeholder="Enter Item Name" name='itemName'>
+                <input type="number" placeholder="Item Quantity" name="itemNumber">
+                <input type="submit">
+            </form>
+        </div>
+        
+
+        <div class="accountOptions">
+            <a href="/characters">Characters</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </div>
+
 
     <div class="modal" id="modal">
         <div class="modal-header">
@@ -51,39 +88,15 @@
         </div>
     </div>
     <div id="overlay"></div>
- 
 
-
-    <% if (total <= charInfo.strScore*15) { %>
-        <h2> Inventory Weight: <%= total %> / <%= charInfo.strScore*15 %> lbs </h2>
-        <%} else{ %>
-        <h2> Inventory Weight:
-            <span class="encumbered"><%= total %> / <%= charInfo.strScore*15 %> lbs</span>
-        </h2>
-        <h3 class="encumbered">You are over-encumbered!</h3>
-        <% } %>
-
-    <h2>Make an Item!</h2>
-    <form action="/inventory/createItem/<%=charId%>" method='POST'>
-        <input type="text" placeholder="Enter Item Name" name='itemName'>
-        <input type="text" placeholder="Description (Optional)" name="itemDescription">
-        <input type="number" placeholder="Item Quantity" name="itemNumber">
-        <input type="number" placeholder="Weight Per Item (Optional)" name="itemWeight">
-        <input type="submit">
-    </form>
-
-    <h2>Find an Item!</h2>
-    <form action="/inventory/searchItem/<%charId%>" method="POST">
-        <input type="text" placeholder="Enter Item Name" name='itemName'>
-        <input type="number" placeholder="Item Quantity" name="itemNumber">
-        <input type="submit">
-    </form>
-
-    <a href="/characters">Characters</a>
-    <a href="/logout">Logout</a>
-
+    <label for="ChangeTheme">
+        <input type="checkbox" id="ChangeTheme"/>
+        <span class="material-symbols-outlined darkButton" id="darkButton">bedtime</span>
+    </label> 
 
 
     <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+
 </body>
 </html>
