@@ -81,6 +81,13 @@ ul>li>div>span{
     border: none;
 }
 
+.options{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 .iName{
     font-weight: bold;
     font-size: larger;
@@ -134,16 +141,12 @@ ul>li>div>span{
 
 @media (max-width:960px) {
 
-.itemName{
-    color: red;
+.options.invOp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: auto;
 }
-
-
-
-
-
-
-
-
 
 }

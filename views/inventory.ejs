@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= charInfo.characterName %></title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -31,19 +33,21 @@
         </div>        
 
         <ul>
-        <% inventory.forEach( el => { %>
-                <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>" data-cid="<%=el.charId%>">
-                    <div class="cInfo">
-                        <span class="iName"><%= el.itemName  %></span>
-                        <span>quantity : <%= el.itemNumber %></span>
-                        <span>item weight : <%= el.itemWeight %></span>
-                        <span>total lb : <%= (el.itemNumber)*(el.itemWeight) %></span>
-                        <span class="iDescription"><%=el.itemDescription%></span>
-                    </div>
-                    <button data-modal-target="#modal" class="material-symbols-outlined noStyle">Edit_square</button>
-                    <button class="delItem material-symbols-outlined noStyle">Delete</button>
-                </li>
-        <% }) %>    
+            <% inventory.forEach( el => { %>
+                    <li class='itemName' data-id='<%=el._id%>' data-path="editItem" data-a="<%=el.itemNumber%>" data-b="<%=el.itemWeight%>" data-cid="<%=el.charId%>">
+                        <div class="cInfo">
+                            <span class="iName"><%= el.itemName  %></span>
+                            <span>quantity : <%= el.itemNumber %></span>
+                            <span>item weight : <%= el.itemWeight %></span>
+                            <span>total lb : <%= (el.itemNumber)*(el.itemWeight) %></span>
+                            <span class="iDescription"><%=el.itemDescription%></span>
+                        </div>
+                        <div class="options invOp">
+                            <span data-modal-target="#modal" class="material-symbols-outlined noStyle" data-id='<%=el._id%>'>Edit_square</span>
+                            <span class="delItem material-symbols-outlined noStyle">Delete</span>
+                        </div>
+                    </li>
+            <% }) %>    
         </ul>
     
         <!--Flex Box likely best option to deal with screen sizes and organization with item list-->
