@@ -42,9 +42,9 @@
                             <span>total lb : <%= (el.itemNumber)*(el.itemWeight) %></span>
                             <span class="iDescription"><%=el.itemDescription%></span>
                         </div>
-                        <div class="options invOp">
+                        <div class="options invOp" data-id='<%=el._id%>'>
                             <span data-modal-target="#modal" class="material-symbols-outlined noStyle" data-id='<%=el._id%>'>Edit_square</span>
-                            <span class="delItem material-symbols-outlined noStyle">Delete</span>
+                            <span class="delItem material-symbols-outlined noStyle" data-id='<%=el._id%>'>Delete</span>
                         </div>
                     </li>
             <% }) %>    

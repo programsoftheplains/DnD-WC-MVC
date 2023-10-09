@@ -13,7 +13,6 @@ const characterRoutes = require('./routes/characters')
 const homebrewsRoutes = require('./routes/homebrews')
 const methodOverride = require("method-override");
 
-//test
 
 require('dotenv').config({path: './config/.env'})
 
