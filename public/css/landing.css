@@ -69,10 +69,8 @@ h3{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 5px;
-    border: 1px solid grey;
 }
 
 .accountOptions>*{
-    border: 1px solid grey;
     margin: 5px;
 }
