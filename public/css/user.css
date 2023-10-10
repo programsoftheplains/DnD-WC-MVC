@@ -8,6 +8,10 @@
     position: relative;
 }
 
+body{
+    margin-bottom: 30px;
+}
+
 .logoTop{
     margin: auto;
     margin-top: 5%;
@@ -17,6 +21,7 @@
     width: 100px;
 }
 
+
 #darkButton{
     position: absolute;
     right: 0;
@@ -25,7 +30,10 @@
 
 .title{
     text-align: center;
+    font-size: x-large;
+    font-weight: bold;
     padding: 5px;
+    margin: 10px;
 }
 
 ul{

@@ -2,11 +2,11 @@
 /**Darkmode**/
 
 body.dark-mode {
-    background-image:url(../assets/bindleDarkAlt.jpg);
+    background-image:url(https://i.imgur.com/eWJNAiI.jpg);
   }
 
 body.dark-mode>div>div>.logo{
-    content: url(../assets/logoWhite.png);
+    content: url(https://i.imgur.com/guHYhjC.png);
     max-height: 62%;
 }
 
@@ -14,7 +14,7 @@ body.dark-mode>div>div>.logo{
 /**Main**/
 
 body{
-    background-image:url(../assets/bindlePurple.jpg);
+    background-image:url(https://i.imgur.com/Yv73DYL.jpg);
     background-size: cover;
 }
 
@@ -53,7 +53,7 @@ h3{
 }
 
 .logo{
-    content: url(../assets/logoBlack.png);
+    content: url(https://i.imgur.com/Z2yXwWe.png);
     max-width: 100%;
     max-height: 60%;
 }
